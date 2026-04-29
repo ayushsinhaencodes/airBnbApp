@@ -53,7 +53,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
             }
             filterChain.doFilter(request, response);
         } catch (JwtException ex) {
-            handlerExceptionResolver.resolveException(request, response, null, ex);
+            handlerExceptionResolver.resolveException(request,response,null,ex);
         }
     }
 
