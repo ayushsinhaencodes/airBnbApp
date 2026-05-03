@@ -10,6 +10,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -24,6 +25,6 @@ public class BookingDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private BookingStatus bookingStatus;
-
+    private BigDecimal amount;
     private Set<GuestDto> guests;
 }
