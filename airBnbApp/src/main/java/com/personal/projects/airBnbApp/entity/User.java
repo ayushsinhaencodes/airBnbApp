@@ -1,5 +1,6 @@
 package com.personal.projects.airBnbApp.entity;
 
+import com.personal.projects.airBnbApp.entity.enums.Gender;
 import com.personal.projects.airBnbApp.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +32,11 @@ public class User implements UserDetails{
     private String password;
 
     private String name;
+
+    private LocalDate dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
@@ -48,12 +55,13 @@ public class User implements UserDetails{
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return Objects.equals(id, user.id);
+        return Objects.equals(getId(), user.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(getId());
     }
 }
