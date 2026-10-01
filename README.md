@@ -21,7 +21,7 @@ This project is a backend application simulating an Airbnb-like platform where u
 
 ## 🔥 Features
 
-* User Registration & Login (JWT आधारित authentication)
+* User Registration & Login (JWT authentication)
 * Property Listing & Management
 * Booking System with status handling
 * Guest Management for bookings
